@@ -62,3 +62,24 @@ func IsArray(value any) ([]any, bool) {
 
 	return arr, true
 }
+
+func IsNumber(value any, min int, max int) (int, bool) {
+	if value == nil {
+		return 0, false
+	}
+
+	number, ok := value.(int)
+	if !ok {
+		return 0, false
+	}
+
+	if number < min {
+		return 0, false
+	}
+
+	if number > max {
+		return 0, false
+	}
+
+	return number, false
+}
